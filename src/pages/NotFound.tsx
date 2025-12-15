@@ -1,23 +1,24 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { ForestBackground, GlassCard, Button } from "@/components/ui";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.error("404 Error:", location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
-    </div>
+    <ForestBackground>
+      <main className="flex min-h-screen items-center justify-center px-4">
+        <GlassCard className="text-center max-w-md">
+          <h1 className="mb-4 text-4xl font-bold text-text-primary">404</h1>
+          <p className="mb-6 text-xl text-text-secondary">Seite nicht gefunden</p>
+          <a href="/"><Button variant="primary">Zur Startseite</Button></a>
+        </GlassCard>
+      </main>
+    </ForestBackground>
   );
 };
 
